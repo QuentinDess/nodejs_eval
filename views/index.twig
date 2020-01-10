@@ -1,0 +1,43 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+
+<div class="banner">
+  <h1>Welcome to Contact</h1>
+</div>
+<div class="contactapp">
+<form method="post" id="addContact" >
+        <label for="name">Votre nom:</label><br>
+        <input class="name"name="name" id="name"  value="votre nom"><br>
+        <label for="surname">Votre prénom:</label><br>
+        <input class="surname"name="surname" id="surname" value="votre prenom"><br>
+        <label for="avatar">Votre avatar:</label><br>
+        <input class="avatar"name="avatar" id="avatar"  value="glissez une image"><br>
+        <label for="numberGSM">Votre numéro mobile:</label><br>
+        <input class="numberGSM"name="numberGSM"  id="numberGSM"value="votre numéro mobile"><br>
+        <label for="numberFix">Votre numéro fixe:</label><br>
+        <input class="numberFix"name="numberFix"  value="votre numéro fixe"><br>
+        <label for="mail">Votre email:</label><br>
+        <input class="mail"name="mail"  value="votre email"><br>
+        <button id="addEmail" class="btn btn-warning">Une autre adresse email?</button>
+        <button id="addContactBtn"class="btn btn-info">Ajouter</button>
+    </form>
+  <div class="news">
+    {% for contact in contacts %}
+    <div class="card">
+      <div class="head_card">
+        <img class="_avatar" src="{{contact.avatar}}" >
+      </div>
+      <div class="card-body">
+          <div class="card-text"> <strong>{{contact.name}}</strong> {{contact.surname}}</div>
+      </div>
+      <div class="card-footer">
+        <em>Date d'ajout : {{contact.date}}</em>
+        <a href="/contact/{{contact._id}}">plus...</a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+</main>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+<h1>Modification de {{contact.name}}</h1>
+<form method="post" id="modifier" >
+    <label for="name">Nom:</label><br>
+    <input class="name"name="name" id="name"  value="{{contact.name}}"><br>
+    <label for="surname">Prénom:</label><br>
+    <input class="surname"name="surname" id="surname" value="{{contact.surname}}"><br>
+    <label for="avatar">Avatar:</label><br>
+    <input class="avatar"name="avatar" id="avatar"  value="{{contact.avatar}}"><br>
+    <label for="numberGSM">Numéro mobile:</label><br>
+    <input class="numberGSM"name="numberGSM"  id="numberGSM"value="{{contact.numberGSM}}"><br>
+    <label for="numberFix">Numéro fixe:</label><br>
+    <input class="numberFix"name="numberFix"  value="{{contact.numberFix}}"><br>
+    <label for="mail">Email:</label><br>
+    <input class="mail"name="mail"  value="{{contact.mail}}"><br>
+    <label for="comments">Note:</label><br>
+    <input class="_id" type="hidden" name="_id" value="{{contact._id}}">
+    <textarea rows="5" cols="30" class="comments"name="comments"  value="{{contact.comments}}"></textarea><br>
+    <button class="btn btn-info">Modifier</button>
+</form>
+{% endblock %}

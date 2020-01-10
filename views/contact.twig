@@ -1,0 +1,50 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+
+<div class="banner">
+  <h1>Welcome to Contact</h1>
+</div>
+<main>
+  <div class="news">
+   
+    <div class="card">
+      <div class="head_card">
+        <img class="_avatar" src="{{contact.avatar}}" >
+      </div>
+      <div class="card-body">
+          <div class="card-text"> 
+          <form method="post" id="modifier" >
+            <label for="name">Nom:</label><br>
+            <input class="name"name="name" id="name"  value="{{contact.name}}"><br>
+            <label for="surname">Prénom:</label><br>
+            <input class="surname"name="surname" id="surname" value="{{contact.surname}}"><br>
+            <label for="numberGSM">Numéro mobile:</label><br>
+            <input class="numberGSM"name="numberGSM"  id="numberGSM"value="{{contact.numberGSM}}"><br>
+            <label for="numberFix">Numéro fixe:</label><br>
+            <input class="numberFix"name="numberFix"  value="{{contact.numberFix}}"><br>
+            <label for="mail">Email:</label><br>
+            <input class="mail"name="mail"  value="{{contact.mail}}"><br>
+            <button class="btn btn-info">Modifier</button>
+           </form>
+          </div>
+      </div>
+      <div class="card-footer">
+        <em>Date d'ajout : {{contact.date}}</em>
+      </div>
+      {% if contact.comments %}
+      <div class="note">
+      <h6>Note<h6>
+      {{contact.comments}}
+      <a href="" class="btn btnDelete btn-danger">Supprimer</a>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+    <form method="post" id="addComment" >
+        <label for="comment">Note</label><br>
+        <textarea class="comment"name="comment" id="comment" rows="5" cols="30">Veuillez rédiger une note...</textarea><br>
+        <button id="addCommentBtn"class="btn btn-info">Ajouter</button>
+    </form>
+</main>
+{% endblock %}
